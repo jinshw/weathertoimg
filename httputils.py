@@ -97,7 +97,7 @@ logging.basicConfig(level=logging.INFO,
                     filemode='a')
 # 打开数据库连接
 host = config["mysql"]["host"]
-post = config["mysql"]["post"]
+port = config["mysql"]["port"]
 username = config["mysql"]["username"]
 dbpassword = config["mysql"]["password"]
 dbname = config["mysql"]["dbname"]
@@ -247,7 +247,7 @@ def datasToImgs(datas, index, type, interval):
         plt.close()
 
         # conn = pymysql.connect(host,int(post), username, dbpassword, dbname)
-        conn = pymysql.connect(host=host, port=int(post), user=username, password=dbpassword, db=dbname)
+        conn = pymysql.connect(host=host, port=int(port), user=username, password=dbpassword, db=dbname)
         cursorInsert = conn.cursor()
 
         fieldType = weatherType.getSQLField()
